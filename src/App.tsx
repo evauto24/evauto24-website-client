@@ -1,9 +1,9 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import HomeLayout from './layout/HomeLayout'
-import AuthLayout from './layout/AuthLayout'
-import HomePage from './pages/HomePage'
-import DynamicPage from './pages/DynamicPage'
-import Login from './pages/auth/Login'
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import HomeLayout from "./layout/HomeLayout";
+import AuthLayout from "./layout/AuthLayout";
+import HomePage from "./pages/HomePage";
+import DynamicPage from "./pages/DynamicPage";
+import Login from "./pages/auth/Login";
 
 export default function App() {
   return (
@@ -21,5 +21,5 @@ export default function App() {
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
