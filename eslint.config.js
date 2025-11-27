@@ -99,19 +99,11 @@ export default [
       'import/order': ['error', { 'newlines-between': 'always' }],
       // React X rules
       'react-x/no-class-component': 'warn',
+      
     },
     settings: {
       react: {
         version: 'detect',
-      },
-      'import/resolver': {
-        typescript: {
-          alwaysTryTypes: true,
-          project: ['./tsconfig.app.json', './tsconfig.node.json'],
-        },
-        node: {
-          extensions: ['.js', '.jsx', '.ts', '.tsx'],
-        },
       },
     },
   },
@@ -140,10 +132,6 @@ export default [
     },
     settings: {
       'import/resolver': {
-        typescript: {
-          alwaysTryTypes: true,
-          project: ['./tsconfig.node.json'],
-        },
         node: {
           extensions: ['.js', '.jsx', '.ts', '.tsx', '.mts'],
         },
