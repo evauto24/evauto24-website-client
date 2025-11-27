@@ -40,15 +40,15 @@ export default defineConfig([
       // other options...
     },
   },
-])
+]);
 ```
 
 You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
 ```js
 // eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+import reactX from 'eslint-plugin-react-x';
+import reactDom from 'eslint-plugin-react-dom';
 
 export default defineConfig([
   globalIgnores(['dist']),
@@ -69,26 +69,25 @@ export default defineConfig([
       // other options...
     },
   },
-])
+]);
 ```
-
 
 src/
 ├── domain/
-│   ├── models/       # Core business entities (e.g., User, Product)
-│   └── services/     # Domain-specific business logic (e.g., UserService)
+│ ├── models/ # Core business entities (e.g., User, Product)
+│ └── services/ # Domain-specific business logic (e.g., UserService)
 ├── application/
-│   └── usecases/     # Application-specific use cases (e.g., CreateUser, GetProductDetails)
+│ └── usecases/ # Application-specific use cases (e.g., CreateUser, GetProductDetails)
 ├── infrastructure/
-│   ├── api/          # API integrations (e.g., Axios client, API calls)
-│   └── repositories/ # Data access implementations (e.g., UserRepository)
+│ ├── api/ # API integrations (e.g., Axios client, API calls)
+│ └── repositories/ # Data access implementations (e.g., UserRepository)
 ├── interfaces/
-│   ├── components/   # Reusable UI components
-│   ├── pages/        # Top-level page components (containers)
-│   └── store/        # State management (e.g., Redux, Zustand store setup)
-├── shared/           # Common utilities, hooks, or assets
-│   ├── assets/
-│   ├── hooks/
-│   └── utils/
-├── App.jsx           # Main application entry point
-└── main.jsx          # Root rendering setup
+│ ├── components/ # Reusable UI components
+│ ├── pages/ # Top-level page components (containers)
+│ └── store/ # State management (e.g., Redux, Zustand store setup)
+├── shared/ # Common utilities, hooks, or assets
+│ ├── assets/
+│ ├── hooks/
+│ └── utils/
+├── App.jsx # Main application entry point
+└── main.jsx # Root rendering setup

@@ -36,10 +36,7 @@ export default [
   // React Hooks config (flat config format)
   ...(reactHooks.configs.flat.recommended ? [reactHooks.configs.flat.recommended] : []),
   // Convert old-style configs to flat config format
-  ...compat.extends(
-    'plugin:react/recommended',
-    'plugin:jsx-a11y/recommended',
-  ),
+  ...compat.extends('plugin:react/recommended', 'plugin:jsx-a11y/recommended'),
   // Global settings for React
   {
     settings: {
@@ -85,21 +82,94 @@ export default [
       'react-x': reactX,
     },
     rules: {
-      // React rules
-      'react/jsx-uses-react': 'off',
-      'react/react-in-jsx-scope': 'off',
-      // React Hooks rules
-      'react-hooks/rules-of-hooks': 'error',
-      'react-hooks/exhaustive-deps': 'warn',
-      // TypeScript rules
-      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
-      '@typescript-eslint/no-non-null-assertion': 'warn',
-      // Import rules - disable unresolved for TypeScript (handled by TypeScript compiler)
-      'import/no-unresolved': 'off',
-      'import/order': ['error', { 'newlines-between': 'always' }],
-      // React X rules
-      'react-x/no-class-component': 'warn',
-      
+      // ===== React Rules =====
+      'react/jsx-uses-react': 'off', // Not needed with React 17+
+      'react/react-in-jsx-scope': 'off', // Not needed with React 17+
+      'react/prop-types': 'off', // TypeScript handles prop validation
+      'react/display-name': 'off', // Not needed with TypeScript
+      'react/jsx-key': 'error', // Prevent missing keys in lists
+      'react/jsx-no-duplicate-props': 'error', // Prevent duplicate props
+      'react/jsx-no-undef': 'error', // Prevent undefined variables in JSX
+      'react/jsx-uses-vars': 'error', // Prevent unused variables in JSX
+      'react/no-array-index-key': 'warn', // Warn about array index as key
+      'react/no-danger': 'warn', // Warn about dangerouslySetInnerHTML
+      'react/no-deprecated': 'warn', // Warn about deprecated React APIs
+      'react/no-direct-mutation-state': 'error', // Prevent direct state mutation
+      'react/no-unescaped-entities': 'error', // Prevent unescaped entities
+      'react/no-unknown-property': 'error', // Prevent unknown DOM properties
+      'react/self-closing-comp': 'error', // Enforce self-closing components
+      'react/jsx-boolean-value': ['error', 'never'], // Enforce no boolean props without value
+      'react/jsx-curly-brace-presence': ['error', { props: 'never', children: 'never' }], // No unnecessary braces
+      'react/jsx-fragments': ['error', 'syntax'], // Prefer <> over <React.Fragment>
+      'react/jsx-no-useless-fragment': 'error', // No useless fragments
+      'react/jsx-pascal-case': 'error', // Enforce PascalCase for components
+
+      // ===== React Hooks Rules =====
+      'react-hooks/rules-of-hooks': 'error', // Enforce Rules of Hooks
+      'react-hooks/exhaustive-deps': 'warn', // Warn about missing dependencies
+
+      // ===== TypeScript Rules =====
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+        },
+      ],
+      '@typescript-eslint/no-non-null-assertion': 'warn', // Warn about non-null assertions
+      '@typescript-eslint/explicit-function-return-type': 'off', // Allow implicit return types
+      '@typescript-eslint/explicit-module-boundary-types': 'off', // Allow implicit module boundaries
+      '@typescript-eslint/no-explicit-any': 'warn', // Warn about any types
+      '@typescript-eslint/no-unnecessary-type-assertion': 'warn', // Warn about unnecessary type assertions
+      '@typescript-eslint/prefer-as-const': 'error', // Prefer 'as const' over type assertions
+      '@typescript-eslint/no-array-constructor': 'error', // Prefer array literals
+      '@typescript-eslint/no-duplicate-enum-values': 'error', // Prevent duplicate enum values
+      '@typescript-eslint/no-extra-non-null-assertion': 'error', // Prevent extra non-null assertions
+      '@typescript-eslint/no-misused-new': 'error', // Prevent misused new operator
+      '@typescript-eslint/no-namespace': 'error', // Prevent namespaces
+      '@typescript-eslint/no-this-alias': 'error', // Prevent this aliasing
+      '@typescript-eslint/no-unused-expressions': 'error', // Prevent unused expressions
+      '@typescript-eslint/prefer-namespace-keyword': 'error', // Prefer namespace keyword
+      '@typescript-eslint/triple-slash-reference': 'error', // Prevent triple-slash references
+
+      // ===== Import/Export Rules =====
+      'import/no-unresolved': 'off', // TypeScript handles this
+      'import/order': [
+        'error',
+        {
+          groups: [
+            'builtin', // Built-in types (e.g., path, fs)
+            'external', // External packages (e.g., react, lodash)
+            'internal', // Internal modules (if using path mapping)
+            'parent', // Parent imports (../)
+            'sibling', // Sibling imports (./)
+            'index', // Index imports (./index)
+          ],
+          'newlines-between': 'always',
+          alphabetize: {
+            order: 'asc',
+            caseInsensitive: true,
+          },
+        },
+      ],
+      'import/no-duplicates': 'error', // Prevent duplicate imports
+      'import/no-unused-modules': 'off', // Too slow for large projects
+      'import/prefer-default-export': 'off', // Allow named exports
+
+      // ===== JSX A11y Rules =====
+      // These are already included via plugin:jsx-a11y/recommended
+      // Add custom overrides if needed:
+      'jsx-a11y/anchor-is-valid': 'warn', // Warn about invalid anchors
+      'jsx-a11y/alt-text': 'error', // Require alt text for images
+      'jsx-a11y/aria-props': 'error', // Validate ARIA props
+      'jsx-a11y/aria-proptypes': 'error', // Validate ARIA prop types
+      'jsx-a11y/aria-unsupported-elements': 'error', // Prevent unsupported ARIA elements
+      'jsx-a11y/role-has-required-aria-props': 'error', // Require ARIA props for roles
+      'jsx-a11y/role-supports-aria-props': 'error', // Validate role ARIA props
+
+      // ===== React X Rules =====
+      'react-x/no-class-component': 'warn', // Prefer function components
     },
     settings: {
       react: {
