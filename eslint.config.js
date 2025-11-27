@@ -39,8 +39,15 @@ export default [
   ...compat.extends(
     'plugin:react/recommended',
     'plugin:jsx-a11y/recommended',
-    'plugin:import/recommended',
   ),
+  // Global settings for React
+  {
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
+  },
   // Type-checked configs - only apply to source files
   ...tseslint.configs.recommendedTypeChecked.map((config) => ({
     ...config,
@@ -86,7 +93,9 @@ export default [
       'react-hooks/exhaustive-deps': 'warn',
       // TypeScript rules
       '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
-      // Import rules
+      '@typescript-eslint/no-non-null-assertion': 'warn',
+      // Import rules - disable unresolved for TypeScript (handled by TypeScript compiler)
+      'import/no-unresolved': 'off',
       'import/order': ['error', { 'newlines-between': 'always' }],
       // React X rules
       'react-x/no-class-component': 'warn',
@@ -94,6 +103,50 @@ export default [
     settings: {
       react: {
         version: 'detect',
+      },
+      'import/resolver': {
+        typescript: {
+          alwaysTryTypes: true,
+          project: ['./tsconfig.app.json', './tsconfig.node.json'],
+        },
+        node: {
+          extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        },
+      },
+    },
+  },
+  // Config for config files (eslint.config.js, vite.config.ts, etc.)
+  {
+    files: ['*.config.{js,ts,mts}', '*.config.*.{js,ts,mts}'],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+      },
+      globals: {
+        ...globals.node,
+      },
+    },
+    plugins: {
+      '@typescript-eslint': tsPlugin,
+      import: importPlugin,
+    },
+    rules: {
+      // Disable import resolution errors for config files
+      'import/no-unresolved': 'off',
+      // Allow non-null assertions in config files
+      '@typescript-eslint/no-non-null-assertion': 'off',
+    },
+    settings: {
+      'import/resolver': {
+        typescript: {
+          alwaysTryTypes: true,
+          project: ['./tsconfig.node.json'],
+        },
+        node: {
+          extensions: ['.js', '.jsx', '.ts', '.tsx', '.mts'],
+        },
       },
     },
   },
