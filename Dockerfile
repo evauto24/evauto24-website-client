@@ -8,6 +8,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 4044
+EXPOSE 4045
 
 CMD ["npm", "run", "dev", "--host"]
