@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const cars = [
-  { id: "tesla-model-s", name: "Tesla Model S", price: "$85,000" },
-  { id: "porsche-taycan", name: "Porsche Taycan", price: "$150,000" },
-  { id: "bmw-i4", name: "BMW i4", price: "$70,000" },
+  { id: 'tesla-model-s', name: 'Tesla Model S', price: '$85,000' },
+  { id: 'porsche-taycan', name: 'Porsche Taycan', price: '$150,000' },
+  { id: 'bmw-i4', name: 'BMW i4', price: '$70,000' },
 ];
 
 export default function Cars() {

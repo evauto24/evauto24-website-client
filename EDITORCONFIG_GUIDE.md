@@ -16,6 +16,7 @@ EditorConfig is a file format and collection of text editor plugins for maintain
 ## 📋 Current Configuration
 
 ### Global Settings (All Files)
+
 - **Charset**: UTF-8
 - **End of line**: LF (Unix-style)
 - **Insert final newline**: Yes
@@ -24,19 +25,23 @@ EditorConfig is a file format and collection of text editor plugins for maintain
 ### File-Specific Settings
 
 #### JavaScript/TypeScript Files (`.js`, `.jsx`, `.ts`, `.tsx`)
+
 - **Indent style**: Spaces
 - **Indent size**: 2 spaces
 - **Max line length**: 100 characters
 
 #### JSON Files (`.json`)
+
 - **Indent style**: Spaces
 - **Indent size**: 2 spaces
 
 #### Markdown Files (`.md`)
+
 - **Trim trailing whitespace**: No (preserves formatting)
 - **Max line length**: Off
 
 #### CSS/SCSS Files (`.css`, `.scss`, `.less`)
+
 - **Indent style**: Spaces
 - **Indent size**: 2 spaces
 
@@ -58,19 +63,24 @@ EditorConfig is a file format and collection of text editor plugins for maintain
 ### Other Editors
 
 #### WebStorm / IntelliJ IDEA
+
 - Built-in support (no extension needed)
 - Settings → Editor → Code Style → Enable EditorConfig support
 
 #### Sublime Text
+
 - Install "EditorConfig" package via Package Control
 
 #### Atom
+
 - Install "editorconfig" package
 
 #### Vim
+
 - Install `editorconfig-vim` plugin
 
 #### Emacs
+
 - Install `editorconfig` package
 
 ## 🔧 Configuration Details
@@ -78,27 +88,33 @@ EditorConfig is a file format and collection of text editor plugins for maintain
 ### Why These Settings?
 
 #### UTF-8 Encoding
+
 - Universal character encoding
 - Supports all languages and special characters
 
 #### LF Line Endings
+
 - Unix-style line endings (recommended for cross-platform)
 - Prevents Git diff issues on Windows/Mac/Linux
 
 #### 2 Space Indentation
+
 - Common standard for JavaScript/TypeScript
 - Matches Prettier configuration
 - Easier to read nested code
 
 #### 100 Character Line Length
+
 - Matches Prettier `printWidth` setting
 - Balances readability with screen space
 
 #### Trim Trailing Whitespace
+
 - Keeps code clean
 - Prevents unnecessary Git diffs
 
 #### Insert Final Newline
+
 - POSIX standard
 - Prevents issues with some tools
 
@@ -111,6 +127,7 @@ EditorConfig works alongside Prettier and ESLint:
 3. **ESLint**: Code quality and best practices
 
 ### Order of Application
+
 1. EditorConfig applies when you type
 2. Prettier formats on save
 3. ESLint checks code quality
@@ -120,6 +137,7 @@ EditorConfig works alongside Prettier and ESLint:
 ### Change Indent Size
 
 Edit `.editorconfig`:
+
 ```ini
 [*.{js,jsx,ts,tsx}]
 indent_size = 4  # Change from 2 to 4
@@ -128,6 +146,7 @@ indent_size = 4  # Change from 2 to 4
 ### Change Line Length
 
 Edit `.editorconfig`:
+
 ```ini
 [*.{js,jsx,ts,tsx}]
 max_line_length = 120  # Change from 100 to 120
@@ -136,6 +155,7 @@ max_line_length = 120  # Change from 100 to 120
 ### Add File Type
 
 Edit `.editorconfig`:
+
 ```ini
 [*.vue]
 indent_style = space
@@ -154,6 +174,7 @@ indent_size = 2
 ### VS Code Status Bar
 
 When EditorConfig extension is active, you'll see:
+
 - File encoding (e.g., "UTF-8")
 - Line ending (e.g., "LF")
 - Indent info (e.g., "Spaces: 2")
@@ -170,12 +191,14 @@ When EditorConfig extension is active, you'll see:
 ### Conflicts with Editor Settings
 
 If your editor settings conflict:
+
 - EditorConfig takes precedence (if extension is installed)
 - Or configure editor to respect EditorConfig
 
 ### Line Ending Issues
 
 If you see CRLF instead of LF:
+
 1. Check `.editorconfig` has `end_of_line = lf`
 2. Install/restart EditorConfig extension
 3. Convert existing files: `npm run format` (Prettier will fix)
@@ -204,4 +227,3 @@ If you see CRLF instead of LF:
 ---
 
 **Note**: EditorConfig is a foundation. Prettier handles advanced formatting, and ESLint handles code quality. All three work together for the best development experience.
-
