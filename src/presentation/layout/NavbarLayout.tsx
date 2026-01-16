@@ -1,13 +1,13 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
 const navItems = [
-  { label: "HOME", to: "/" },
-  { label: "Electric Cars", to: "/cars" },
-  { label: "Changing Stations", to: "/stations" },
-  { label: "Accessories", to: "/accessories" },
-  { label: "Our Garages", to: "/garages" },
-  { label: "Favorite", to: "/favorites" },
-  { label: "Compare", to: "/compare" },
+  { label: 'HOME', to: '/' },
+  { label: 'Electric Cars', to: '/cars' },
+  { label: 'Changing Stations', to: '/stations' },
+  { label: 'Accessories', to: '/accessories' },
+  { label: 'Our Garages', to: '/garages' },
+  { label: 'Favorite', to: '/favorites' },
+  { label: 'Compare', to: '/compare' },
 ];
 
 export default function NavbarLayout() {
@@ -27,9 +27,7 @@ export default function NavbarLayout() {
                 key={item.to}
                 to={item.to}
                 className={({ isActive }) =>
-                  isActive
-                    ? "text-yellow-400"
-                    : "text-white/80 hover:text-yellow-400"
+                  isActive ? 'text-yellow-400' : 'text-white/80 hover:text-yellow-400'
                 }
               >
                 {item.label}
@@ -38,12 +36,8 @@ export default function NavbarLayout() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <button className="px-4 py-2 bg-white text-black rounded">
-              Start Selling
-            </button>
-            <button className="px-4 py-2 bg-blue-600 rounded">
-              Logout
-            </button>
+            <button className="px-4 py-2 bg-white text-black rounded">Start Selling</button>
+            <button className="px-4 py-2 bg-blue-600 rounded">Logout</button>
             <div className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center">
               👤
             </div>

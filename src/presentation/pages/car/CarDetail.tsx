@@ -1,20 +1,24 @@
-import { useParams } from "react-router-dom";
-
-const carData: Record<string, any> = {
-  "tesla-model-s": {
-    name: "Tesla Model S",
-    price: "$85,000",
-    range: "652 km",
+import { useParams } from 'react-router-dom';
+type car = {
+  name: string;
+  price: string;
+  range: string;
+};
+const carData: Record<string, car> = {
+  'tesla-model-s': {
+    name: 'Tesla Model S',
+    price: '$85,000',
+    range: '652 km',
   },
-  "porsche-taycan": {
-    name: "Porsche Taycan",
-    price: "$150,000",
-    range: "450 km",
+  'porsche-taycan': {
+    name: 'Porsche Taycan',
+    price: '$150,000',
+    range: '450 km',
   },
-  "bmw-i4": {
-    name: "BMW i4",
-    price: "$70,000",
-    range: "590 km",
+  'bmw-i4': {
+    name: 'BMW i4',
+    price: '$70,000',
+    range: '590 km',
   },
 };
 
@@ -23,11 +27,7 @@ export default function CarDetail() {
   const car = carId ? carData[carId] : null;
 
   if (!car) {
-    return (
-      <div className="p-10 text-center text-red-500">
-        Car not found
-      </div>
-    );
+    return <div className="p-10 text-center text-red-500">Car not found</div>;
   }
 
   return (
