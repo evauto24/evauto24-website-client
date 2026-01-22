@@ -1,10 +1,11 @@
+import 'tailwindcss';
+import './main.css';
+
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-
-import 'tailwindcss'
-import './main.css';
 import { RouterProvider } from 'react-router-dom';
-import {router} from './routes/index.tsx';
+
+import { router } from './routes';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
