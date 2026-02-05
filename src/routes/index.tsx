@@ -4,6 +4,7 @@ import MainLayout from '../presentation/layout/MainLayout';
 import Cars from '../presentation/pages/car/Car';
 import CarDetail from '../presentation/pages/car/CarDetail';
 import Home from '../presentation/pages/HomePage';
+import ChargingStation from '../presentation/pages/ChargingPage';
 
 export const router = createBrowserRouter([
   {
@@ -36,4 +37,14 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: '/stations',
+    element: <MainLayout />,
+    children: [
+      {
+        index: true,
+        element: <ChargingStation/>
+      }
+    ]
+  }
 ]);

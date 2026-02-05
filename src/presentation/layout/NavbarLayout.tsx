@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 const navItems = [
   { label: 'HOME', to: '/' },
   { label: 'Electric Cars', to: '/cars' },
-  { label: 'Changing Stations', to: '/stations' },
+  { label: 'Charging Stations', to: '/stations' },
   { label: 'Accessories', to: '/accessories' },
   { label: 'Our Garages', to: '/garages' },
   { label: 'Favorite', to: '/favorites' },
