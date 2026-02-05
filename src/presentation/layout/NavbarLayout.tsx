@@ -15,12 +15,10 @@ export default function NavbarLayout() {
     <div className=" bg-black text-white">
       <header className="fixed top-0 left-0 w-full z-50 bg-black/70 backdrop-blur border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          {/* Logo */}
           <NavLink to="/" className="text-xl font-bold text-yellow-400">
             EV CAR
           </NavLink>
 
-          {/* Navigation */}
           <nav className="hidden md:flex gap-6 text-sm">
             {navItems.map((item) => (
               <NavLink

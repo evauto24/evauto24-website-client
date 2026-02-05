@@ -9,18 +9,6 @@ export default function Footer() {
           <p className="text-sm leading-relaxed">
             Drive into the future with electric vehicles, charging stations, and smart EV solutions.
           </p>
-          {/* <div className="flex flex-col sm:flex-col mt-5 w-full max-w-md mx-auto gap-2">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="flex-1 px-3 py-2 bg-gray-300 text-black rounded-md sm:rounded-r-none sm:rounded-l-md focus:outline-none"
-              />
-              <button
-                className="flex-none sm:flex-1 bg-yellow-500 text-black px-4 py-2 rounded-md sm:rounded-l-none sm:rounded-r-md font-semibold hover:bg-yellow-400"
-              >
-                SUBMIT
-              </button>
-            </div> */}
         </div>
         <div>
           <h3 className="font-semibold mb-4">Quick Links</h3>

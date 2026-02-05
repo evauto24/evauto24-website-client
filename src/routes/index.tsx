@@ -3,8 +3,8 @@ import { createBrowserRouter } from 'react-router-dom';
 import MainLayout from '../presentation/layout/MainLayout';
 import Cars from '../presentation/pages/car/Car';
 import CarDetail from '../presentation/pages/car/CarDetail';
-import Home from '../presentation/pages/HomePage';
 import ChargingStation from '../presentation/pages/ChargingPage';
+import Home from '../presentation/pages/HomePage';
 
 export const router = createBrowserRouter([
   {
@@ -43,8 +43,8 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <ChargingStation/>
-      }
-    ]
-  }
+        element: <ChargingStation />,
+      },
+    ],
+  },
 ]);
